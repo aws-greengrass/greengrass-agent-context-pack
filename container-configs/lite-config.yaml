@@ -1,0 +1,18 @@
+system:
+  certificateFilePath: "YOUR_CERTIFICATE_PATH"
+  privateKeyPath: "YOUR_KEY_PATH"
+  rootCaPath: "YOUR_ROOT_CA_PATH"
+  rootPath: "/var/lib/greengrass"
+  thingName: "YOUR_THING_NAME_HERE"
+services:
+  aws.greengrass.NucleusLite:
+    componentType: "NUCLEUS"
+    configuration:
+      awsRegion: "YOUR_REGION"
+      iotCredEndpoint: "YOUR_IOT_CRED_ENDPOINT"
+      iotDataEndpoint: "YOUR_IOT_DATA_ENDPOINT"
+      iotRoleAlias: "YOUR_ROLE_ALIAS"
+      runWithDefault:
+        posixUser: "ggcore:ggcore"
+      greengrassDataPlanePort: "8443"
+      platformOverride: {}
