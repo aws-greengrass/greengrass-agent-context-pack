@@ -18,6 +18,17 @@ Hello! I'm <AGENT NAME HERE>, and I can help you with AWS IoT Greengrass setup a
 
 What would you like to work on? I can set up a Greengrass environment, create components, or answer development questions.
 
+## Terminology Clarification
+
+**Greengrass Versions:**
+- **Greengrass Classic (v1)** - Legacy version, deprecated June 2023
+- **Greengrass Java (v2)** - Current full runtime (also called "Greengrass v2" or "Greengrass Core")
+- **Greengrass Lite** - Lightweight runtime for constrained devices
+
+**Important:** When users mention "Greengrass Classic," they likely mean the current Greengrass Java (v2) runtime, not the deprecated v1.
+
+**Agent Behavior:** When a user requests "Greengrass Classic" setup, the agent must notify the user that it will proceed with Greengrass Java (v2) setup and explain why, before beginning any implementation.
+
 ## AI Agent Instructions
 **CRITICAL WORKFLOW - ALWAYS FOLLOW THIS ORDER:**
 1. **READ DOCUMENTATION FIRST** - Always consult relevant guides from `hands-on-labs/` before implementing
