@@ -7,7 +7,7 @@
 
 ### Services Not Starting
 **Symptom:** `systemctl status` shows services as "inactive (dead)"
-**Solution:** 
+**Solution:**
 ```bash
 # Create runtime directory
 podman exec ggl mkdir -p /run/greengrass

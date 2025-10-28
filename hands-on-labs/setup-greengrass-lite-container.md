@@ -30,7 +30,7 @@ Create an IoT policy with a unique name (e.g., "GreengrassLitePolicy-{timestamp}
 ## Step 4: Prepare Configuration Files
 Create a certificates directory at `run/certs/` and save:
 - Certificate PEM as `device.pem`
-- Private key as `device.key` 
+- Private key as `device.key`
 - Download Amazon Root CA certificate as `AmazonRootCA1.pem`
 
 Create `run/config.yaml` with system paths pointing to `/var/lib/greengrass/certs/` for the certificates, the unique thing name created in Step 2, the unique IoT role alias from Step 2.5, and services configuration for NucleusLite with the IoT endpoints obtained earlier. Refer to the configuration provided in the file `container-configs/lite-config.yaml`.
