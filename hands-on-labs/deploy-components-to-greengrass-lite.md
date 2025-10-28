@@ -59,9 +59,9 @@ def signal_handler(sig, frame):
 def main():
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
-    
+
     print(f"Component {COMP_TIMESTAMP} starting...", flush=True)
-    
+
     # Your component logic here
     while True:
         # Component work (e.g., publish to topic, process data, etc.)
@@ -102,7 +102,7 @@ Manifests:
       - URI: s3://{BUCKET_NAME}/{COMPONENT_NAME}/1.0.0/your_component_script.py
 ```
 
-**CRITICAL**: 
+**CRITICAL**:
 - Use lowercase `run` in Lifecycle (Greengrass Lite is case-sensitive)
 - Replace placeholders: `{COMPONENT_NAME}`, `{COMPONENT_DESCRIPTION}`, `{PUBLISHER_NAME}`, `{BUCKET_NAME}`
 - Adjust script name and path as needed
@@ -199,7 +199,7 @@ podman exec $CONTAINER_NAME journalctl -u ggl.core.ggdeploymentd.service -f
 
 **Expected Log Sequence**:
 1. "Got message from IoT Core" - Job received
-2. "HTTP code: 200" - S3 artifact downloaded successfully  
+2. "HTTP code: 200" - S3 artifact downloaded successfully
 3. "Component succeeded" - Component deployed
 4. "Completed deployment processing and reporting job as SUCCEEDED" - Deployment complete
 

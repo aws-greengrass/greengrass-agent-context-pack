@@ -57,7 +57,7 @@ COPY certs/ /opt/aws/iotsdk/certs/
 Greengrass Lite containers need these directories:
 ```bash
 /opt/aws/iotsdk/config/    # Configuration files
-/opt/aws/iotsdk/certs/     # Device certificates  
+/opt/aws/iotsdk/certs/     # Device certificates
 /var/lib/greengrass/       # Runtime data
 /run/greengrass/           # Socket files
 ```

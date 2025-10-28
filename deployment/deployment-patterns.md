@@ -12,7 +12,7 @@ Best for:
 - Complex component dependencies
 - Production environments with complete monitoring needs
 
-### Lite Runtime Deployment  
+### Lite Runtime Deployment
 Best for:
 - Constrained devices (<256MB RAM)
 - Simple component architectures

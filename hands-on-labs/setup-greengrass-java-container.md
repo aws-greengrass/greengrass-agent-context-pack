@@ -36,7 +36,7 @@ Create entrypoint script that:
 ## Step 3: Build and Run Container
 **CRITICAL Container Flags Required:**
 - `--init` - Required for proper process management
-- `--privileged` - Required for system operations  
+- `--privileged` - Required for system operations
 - **Container runs as root** - Required for Greengrass Java system-level operations
 - Mount AWS credentials to `/root/.aws:ro` (since container runs as root)
 - Set environment variables: THING_NAME, AWS_DEFAULT_REGION

@@ -44,6 +44,10 @@
 2. **Run**: Component process started and monitored
 3. **Shutdown**: Graceful component termination
 
+## Accessing AWS resources
+- When publishing MQTT messages to IoT core use IPC. See the IPC communication section below.
+- When accessing AWS resources TES is required. Refer to the guide here: ./token-exchange-service-guide.md
+
 ## Service Dependencies
 Components can depend on other services:
 - Dependencies must start before dependent services
