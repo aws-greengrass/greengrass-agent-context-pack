@@ -34,10 +34,10 @@ The agent will explain its Greengrass capabilities and guide you through availab
 
 ## Supported Greengrass Variants
 
-### Greengrass (Full Runtime)
+### Greengrass Nucleus (Full Runtime)
 Provides the complete IoT Greengrass experience with full component lifecycle management, advanced deployment capabilities, and comprehensive features suitable for development and testing environments.
 
-### Greengrass Lite (Constrained Devices)
+### Greengrass Nucleus Lite (Constrained Devices)
 Offers a lightweight runtime optimized for resource-constrained environments with a simplified component model, edge device optimization, and rapid experimentation capabilities.
 
 ## Getting Started

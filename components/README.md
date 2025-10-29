@@ -47,8 +47,8 @@ Greengrass Lite is CASE-SENSITIVE for ALL recipe fields. Use exact casing as spe
 ## Runtime Field Requirements
 
 - **Universal compatibility**: `"runtime": "*"` (works on both Greengrass (full runtime) and Lite (constrained devices))
-- **Greengrass Lite only**: `"runtime": "aws_nucleus_lite"`
-- **Greengrass only**: Omit runtime field entirely
+- **Greengrass Nucleus Lite only**: `"runtime": "aws_nucleus_lite"`
+- **Greengrass Nucleus only**: Omit runtime field entirely
 - **Default recommendation**: Use `"runtime": "*"` for maximum compatibility unless specific runtime targeting is required
 
 ## Component Creation Workflow
@@ -65,11 +65,11 @@ When creating components, follow this specific workflow:
 
 ### Full Nucleus vs Lite
 - **Greengrass Nucleus**: Full-featured runtime with complete IPC support
-- **Greengrass Lite**: Lightweight runtime for constrained devices with subset of features
+- **Greengrass Nucleus Lite**: Lightweight runtime for constrained devices with subset of features
 
 ### Choosing the Right Runtime
-- Use **Nucleus** for full-featured applications requiring complete IPC support
-- Use **Lite** for resource-constrained devices (IoT edge devices, embedded systems)
+- Use **Greengrass Nucleus** for full-featured applications requiring complete IPC support
+- Use **Greengrass Nucleus Lite** for resource-constrained devices (IoT edge devices, embedded systems)
 
 ## Component Lifecycle
 1. **Install**: Component artifacts downloaded and prepared
