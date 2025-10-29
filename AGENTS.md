@@ -64,6 +64,7 @@ What would you like to work on? I can set up a Greengrass environment, create co
 
 **General Instructions:**
 - **CREATE FILES IN TEMPORARY DIRECTORIES** - Always create setup files, Dockerfiles, and configurations in `/tmp/` directories for easy cleanup and organization
+- **RESOURCE CLEANUP** - Follow guidance in `cleanup-resources.md` for proper cleanup procedures and critical safety requirements
 - AWS credentials are not persisted between commands which you run. Use credentials with every command.
 - There is no need to install AWS CLI in the container. The config can be updated externally to have the correct endpoints for credentials and data and then copied over to the container.
 - Downloading the source/binaries:
