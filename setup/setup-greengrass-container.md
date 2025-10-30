@@ -1,13 +1,13 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: CC-BY-SA-4.0
 
-# AI Agent Instructions: Setup Greengrass Java in Container
+# AI Agent Instructions: Setup Greengrass in Container
 
 ## What the Agent Should Do
-Set up AWS IoT Greengrass Java (Nucleus) in a Docker/Podman container for component development and deployment.
+Set up AWS IoT Greengrass (Nucleus) in a Podman container for component development and deployment.
 
 ## CRITICAL Requirements - Container Setup
-- **MUST run container as ROOT** - Greengrass Java requires root privileges for component execution
+- **MUST run container as ROOT** - Greengrass (full runtime) requires root privileges for component execution
 - **MUST use --init flag** - Required for proper process management and shutdown
 - **MUST use --privileged** - Required for system-level operations
 - **Ubuntu base recommended** - Better Python/system compatibility than Amazon Linux
@@ -37,7 +37,8 @@ Create entrypoint script that:
 **CRITICAL Container Flags Required:**
 - `--init` - Required for proper process management
 - `--privileged` - Required for system operations
-- **Container runs as root** - Required for Greengrass Java system-level operations
+- Prefer podman to build and run the container unless the user specifies otherwise. Give options to the user if it does not work
+- **Container runs as root** - Required for Greengrass system-level operations
 - Mount AWS credentials to `/root/.aws:ro` (since container runs as root)
 - Set environment variables: THING_NAME, AWS_DEFAULT_REGION
 
@@ -52,6 +53,10 @@ Check that:
 
 ## Component Development Notes
 
+### AWS Service Integration
+Components accessing AWS services require Token Exchange Service (TES) dependency.
+See: `components/token-exchange-service-guide.md`
+
 ### Recipe Format
 Use standard Greengrass v2 recipe format with:
 - Access control for aws.greengrass.ipc.mqttproxy
@@ -65,7 +70,7 @@ Use publish_to_iot_core method with topic_name, payload, and qos parameters
 
 ## Critical Differences from Greengrass Lite
 
-| Aspect | Greengrass Java | Greengrass Lite |
+| Aspect | Greengrass | Greengrass Lite |
 |--------|----------------|-----------------|
 | Container User | Root required | ggcore user |
 | Container Flags | --init --privileged | --privileged only |
@@ -136,9 +141,9 @@ Use publish_to_iot_core method with topic_name, payload, and qos parameters
 
 ---
 
-## ✅ Greengrass Java Container Setup Complete!
+## ✅ Greengrass Container Setup Complete!
 
-Your Greengrass Java environment is now running and ready for development. Here's what I can help you with next:
+Your Greengrass environment is now running and ready for development. Here's what I can help you with next:
 
 **Component Development:**
 - **Create custom IoT components** - I can generate component recipes and code templates for Python, Java, shell scripts, or other languages

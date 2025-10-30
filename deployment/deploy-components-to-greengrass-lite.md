@@ -4,7 +4,7 @@
 # AI Agent Instructions: Deploy Components to Greengrass Lite Device
 
 ## Prerequisites
-- Greengrass Lite device already running (use `q-setup-greengrass-lite-container.md`)
+- Greengrass Lite device already running (use `setup-greengrass-lite-container.md`)
 - AWS credentials available
 - Container name from setup (e.g., `ggl-{timestamp}`)
 
@@ -99,7 +99,7 @@ Manifests:
       run: |
         python3 {artifacts:path}/your_component_script.py
     Artifacts:
-      - URI: s3://{BUCKET_NAME}/{COMPONENT_NAME}/1.0.0/your_component_script.py
+      - Uri: s3://{BUCKET_NAME}/{COMPONENT_NAME}/1.0.0/your_component_script.py
 ```
 
 **CRITICAL**:
@@ -232,7 +232,7 @@ Manifests:
       run: |
         python3 {artifacts:path}/your_component_script.py
     Artifacts:
-      - URI: file:///var/lib/greengrass/packages/artifacts/{COMPONENT_NAME}/1.0.0/your_component_script.py
+      - Uri: file:///var/lib/greengrass/packages/artifacts/{COMPONENT_NAME}/1.0.0/your_component_script.py
 ```
 
 ### Step 2: Prepare Component Store

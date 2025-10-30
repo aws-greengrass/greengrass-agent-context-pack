@@ -1,6 +1,6 @@
 # AWS IoT Greengrass AI Agents Context Pack
 
-This repository provides structured knowledge and step-by-step guides for AI agents to quickly set up and experiment with AWS IoT Greengrass. It follows the [https://agents.md](https://agents.md) specification.
+This repository provides structured knowledge and step-by-step guides for AI agents to quickly set up and experiment with AWS IoT Greengrass Nucleus. It follows the [https://agents.md](https://agents.md) specification.
 
 ## ⚠️ Important Notice
 
@@ -9,11 +9,11 @@ This repository provides structured knowledge and step-by-step guides for AI age
 ## Purpose
 
 This context pack enables AI agents to:
-- Set up Greengrass Java (full runtime) and Greengrass Lite (constrained devices) in containerized environments
+- Set up Greengrass Nucleus (full runtime) and Greengrass Nucleus Lite (constrained devices) in containerized environments
 - Create and deploy custom IoT components
 - Follow best practices for component development
 - Troubleshoot common issues
-- Provide guided assistance for Greengrass experimentation
+- Provide guided assistance for Greengrass Nucleus experimentation
 
 ## AI Agent Integration
 
@@ -34,10 +34,10 @@ The agent will explain its Greengrass capabilities and guide you through availab
 
 ## Supported Greengrass Variants
 
-### Greengrass Java (Full Runtime)
+### Greengrass Nucleus (Full Runtime)
 Provides the complete IoT Greengrass experience with full component lifecycle management, advanced deployment capabilities, and comprehensive features suitable for development and testing environments.
 
-### Greengrass Lite (Constrained Devices)
+### Greengrass Nucleus Lite (Constrained Devices)
 Offers a lightweight runtime optimized for resource-constrained environments with a simplified component model, edge device optimization, and rapid experimentation capabilities.
 
 ## Getting Started
@@ -46,10 +46,10 @@ AI agents should follow this sequence:
 
 1. **Review [AGENTS.md](./AGENTS.md)** for workflow patterns and implementation guidelines
 2. **Select appropriate setup**:
-   - For full feature set: `hands-on-labs/setup-greengrass-java-container.md`
-   - For constrained environments: `hands-on-labs/setup-greengrass-lite-container.md`
-3. **Implement component development**: `hands-on-labs/greengrass-lite-component-patterns.md`
-4. **Execute deployment**: `hands-on-labs/deploy-components-to-greengrass-lite.md`
+   - For full feature set: `setup/setup-greengrass-container.md`
+   - For constrained environments: `setup/setup-greengrass-lite-container.md`
+3. **Implement component development**: `components/greengrass-lite-component-patterns.md`
+4. **Execute deployment**: `setup/deploy-components-to-greengrass-lite.md`
 
 ## Technical Considerations
 

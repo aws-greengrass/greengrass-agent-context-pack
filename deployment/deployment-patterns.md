@@ -3,6 +3,24 @@
 
 # Greengrass Deployment Patterns
 
+## Basic preferences
+### Deployment Strategy Preference
+**Default to Cloud Deployment** when not specified by user:
+- More reliable than local deployment for Greengrass Lite
+- Requires S3 permissions on Token Exchange Role
+
+### Local Deployment (Development)
+- Copy recipe to `/var/lib/greengrass/packages/recipes/`
+- Copy artifacts to `/var/lib/greengrass/packages/artifacts/`
+- Set proper ownership (ggcore:ggcore)
+- Deploy using `ggl-cli deploy --add-component`
+
+### Cloud Deployment (Production)
+- Upload artifacts to S3
+- Create component version via AWS Greengrass service
+- Create thing group and add device
+- Deploy to thing group (required for Greengrass Lite)
+
 ## Runtime Selection
 
 ### Full Nucleus Deployment
@@ -18,6 +36,24 @@ Best for:
 - Simple component architectures
 - Edge devices with limited resources
 - Embedded systems and IoT sensors
+
+## Deployment Requirements
+
+### Thing Groups Mandatory
+**Greengrass Lite devices MUST be in thing groups for cloud deployments**
+- Create thing group before deployment
+- Add device to thing group
+- Deploy to thing group ARN, not individual device
+
+### Component Version Management
+- Version conflicts require empty deployment to remove old versions
+- Deploy empty components `{}` to remove all components from target
+- Then deploy new versions to avoid conflicts
+
+### Recipe Format Considerations
+- JSON recipes require base64 encoding for AWS CLI: `base64 -i recipe.json`
+- YAML recipes work better for local development and file-based operations
+- Use `aws greengrassv2 create-component-version --inline-recipe "$RECIPE_B64"`
 
 ## Deployment Strategies
 
