@@ -23,17 +23,17 @@
   },
   "Manifests": [
     {
-      "platform": {
+      "Platform": {
         "os": "linux"
       },
       "runtime": "*",
-      "lifecycle": {
+      "Lifecycle": {
         "run": "python3 {artifacts:path}/src/main.py"
       },
-      "artifacts": [
+      "Artifacts": [
         {
-          "uri": "s3://YOUR_BUCKET/iot-core-publisher/1.0.0/iot-core-publisher.zip",
-          "unarchive": "ZIP"
+          "Uri": "s3://YOUR_BUCKET/iot-core-publisher/1.0.0/iot-core-publisher.zip",
+          "Unarchive": "ZIP"
         }
       ]
     }

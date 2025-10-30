@@ -23,18 +23,18 @@
     },
     "Manifests": [
         {
-            "platform": {
+            "Platform": {
                 "os": "linux"
             },
             "runtime": "*",
-            "lifecycle": {
+            "Lifecycle": {
                 "install": "pip3 install boto3 watchdog",
                 "run": "python3 {artifacts:path}/src/main.py"
             },
-            "artifacts": [
+            "Artifacts": [
                 {
-                    "uri": "s3://YOUR_BUCKET/s3-uploader/1.0.0/s3-uploader.zip",
-                    "unarchive": "ZIP"
+                    "Uri": "s3://YOUR_BUCKET/s3-uploader/1.0.0/s3-uploader.zip",
+                    "Unarchive": "ZIP"
                 }
             ]
         }

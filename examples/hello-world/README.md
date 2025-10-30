@@ -8,7 +8,7 @@ A simple Greengrass component that logs configurable messages at regular interva
 - Adjustable logging interval
 - Configurable log level
 - Proper error handling and graceful shutdown
-- Universal runtime compatibility (`"Runtime": "*"`) - works on both Greengrass and Lite
+- Universal runtime compatibility (`"runtime": "*"`) - works on both Greengrass and Lite
 
 ## Configuration
 

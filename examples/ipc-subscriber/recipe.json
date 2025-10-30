@@ -13,17 +13,17 @@
   },
   "Manifests": [
     {
-      "platform": {
+      "Platform": {
         "os": "linux"
       },
       "runtime": "*",
-      "lifecycle": {
+      "Lifecycle": {
         "run": "python3 {artifacts:path}/src/main.py"
       },
-      "artifacts": [
+      "Artifacts": [
         {
-          "uri": "s3://YOUR_BUCKET/ipc-subscriber/1.0.0/ipc-subscriber.zip",
-          "unarchive": "ZIP"
+          "Uri": "s3://YOUR_BUCKET/ipc-subscriber/1.0.0/ipc-subscriber.zip",
+          "Unarchive": "ZIP"
         }
       ]
     }

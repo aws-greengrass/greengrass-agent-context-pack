@@ -16,6 +16,10 @@ Create a component that publishes messages to AWS IoT Core using Greengrass IPC 
 Create a timestamped workspace directory and navigate to it. Generate unique names for the component and S3 bucket using timestamps to avoid conflicts.
 
 ## Step 2: Create Publisher Script
+**AWS Service Access Note**: 
+If your component needs S3, DynamoDB, or other AWS services beyond IoT Core, 
+see `components/token-exchange-service-guide.md` for TES dependency requirements.
+
 Create a Python script that:
 - Uses GreengrassCoreIPCClientV2 for IoT Core communication
 - Publishes messages to the specified IoT topic based on user requirements
