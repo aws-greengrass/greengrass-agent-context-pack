@@ -1,0 +1,32 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.example.IPCPublisher",
+  "ComponentVersion": "1.0.0",
+  "ComponentDescription": "Publishes messages via Greengrass IPC for inter-component communication",
+  "ComponentPublisher": "Example",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "topic": "local/sensor/data",
+      "interval": 15,
+      "messageType": "sensor-reading",
+      "deviceId": "ipc-sensor-001"
+    }
+  },
+  "Manifests": [
+    {
+      "platform": {
+        "os": "linux"
+      },
+      "runtime": "*",
+      "lifecycle": {
+        "run": "python3 {artifacts:path}/src/main.py"
+      },
+      "artifacts": [
+        {
+          "uri": "s3://YOUR_BUCKET/ipc-publisher/1.0.0/ipc-publisher.zip",
+          "unarchive": "ZIP"
+        }
+      ]
+    }
+  ]
+}

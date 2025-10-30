@@ -1,0 +1,50 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.example.SensorSimulator",
+  "ComponentVersion": "1.0.0",
+  "ComponentDescription": "Simulates various sensor types with realistic data patterns",
+  "ComponentPublisher": "Example",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "sensors": [
+        {
+          "id": "temp-001",
+          "type": "temperature",
+          "interval": 30,
+          "baseValue": 22.0,
+          "variance": 3.0,
+          "unit": "°C"
+        },
+        {
+          "id": "humid-001", 
+          "type": "humidity",
+          "interval": 45,
+          "baseValue": 60.0,
+          "variance": 15.0,
+          "unit": "%"
+        }
+      ],
+      "outputMode": "file",
+      "outputPath": "/tmp/sensor-data.json",
+      "enableDrift": true,
+      "enableNoise": true
+    }
+  },
+  "Manifests": [
+    {
+      "platform": {
+        "os": "linux"
+      },
+      "runtime": "*",
+      "lifecycle": {
+        "run": "python3 {artifacts:path}/src/main.py"
+      },
+      "artifacts": [
+        {
+          "uri": "s3://YOUR_BUCKET/sensor-simulator/1.0.0/sensor-simulator.zip",
+          "unarchive": "ZIP"
+        }
+      ]
+    }
+  ]
+}
