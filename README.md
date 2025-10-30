@@ -1,6 +1,6 @@
 # AWS IoT Greengrass AI Agents Context Pack
 
-This repository provides structured knowledge and step-by-step guides for AI agents to quickly set up and experiment with AWS IoT Greengrass. It follows the [https://agents.md](https://agents.md) specification.
+This repository provides structured knowledge and step-by-step guides for AI agents to quickly set up and experiment with AWS IoT Greengrass Nucleus. It follows the [https://agents.md](https://agents.md) specification.
 
 ## ⚠️ Important Notice
 
@@ -9,11 +9,11 @@ This repository provides structured knowledge and step-by-step guides for AI age
 ## Purpose
 
 This context pack enables AI agents to:
-- Set up Greengrass (full runtime) and Greengrass Lite (constrained devices) in containerized environments
+- Set up Greengrass Nucleus (full runtime) and Greengrass Nucleus Lite (constrained devices) in containerized environments
 - Create and deploy custom IoT components
 - Follow best practices for component development
 - Troubleshoot common issues
-- Provide guided assistance for Greengrass experimentation
+- Provide guided assistance for Greengrass Nucleus experimentation
 
 ## AI Agent Integration
 
