@@ -46,3 +46,4 @@ Each example includes:
 - AWS credentials are handled via Token Exchange Service (TES)
 - Components follow Greengrass best practices
 - Examples are designed for both Greengrass and Lite (where compatible)
+- **MUST refer to the `../deployment` section when creating a deployment**

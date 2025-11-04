@@ -48,7 +48,7 @@ AI agents should follow this sequence:
 2. **Select appropriate setup**:
    - For full feature set: `setup/setup-greengrass-container.md`
    - For constrained environments: `setup/setup-greengrass-lite-container.md`
-3. **Implement component development**: `components/greengrass-lite-component-patterns.md`
+3. **Implement component development**: `components/` and `components/comprehensive-component-recipe.yaml`
 4. **Execute deployment**: `setup/deploy-components-to-greengrass-lite.md`
 
 ## Technical Considerations
