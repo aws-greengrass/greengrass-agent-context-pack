@@ -4,31 +4,7 @@ This directory contains guides and templates for developing AWS IoT Greengrass c
 
 ## Component Recipe Template
 
-```json
-{
-  "RecipeFormatVersion": "2020-01-25",
-  "ComponentName": "com.example.MyComponent",
-  "ComponentVersion": "1.0.0",
-  "ComponentDescription": "My custom component",
-  "ComponentPublisher": "Amazon",
-  "ComponentConfiguration": {
-    "DefaultConfiguration": {
-      "message": "Hello World"
-    }
-  },
-  "Manifests": [
-    {
-      "Platform": {
-        "os": "linux"
-      },
-      "runtime": "*",
-      "lifecycle": {
-        "run": "python3 {artifacts:path}/main.py"
-      }
-    }
-  ]
-}
-```
+When creating a recipe for any component, the agent *MUST* first read the `./comprehensice-component-recipe.yaml` *BEFORE* producing a recipe.
 
 ## CRITICAL: Recipe Field Case Sensitivity
 
@@ -42,7 +18,7 @@ Greengrass Lite is CASE-SENSITIVE for ALL recipe fields. Use exact casing as spe
 - `"Uri"` (not "URI")
 - `"Unarchive"` (not "unarchive")
 
-**For clarification look at the AWS greengrass recipe reference page: https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html**
+**For clarification agent MUST read the AWS greengrass recipe reference page: https://docs.aws.amazon.com/greengrass/v2/developerguide/component-recipe-reference.html**
 
 ## Runtime Field Requirements
 
@@ -105,7 +81,7 @@ Available IPC operations (varies by runtime):
 ## Available Guides
 
 - `token-exchange-service-guide.md` - Critical TES dependency requirements for AWS service access
-- `greengrass-lite-component-patterns.md` - Patterns to use in greengrass-lite components
+- `comprehensive-component-recipe.yaml` - Recipe reference with all the fields supported 
 
 ## Working Examples
 
@@ -115,3 +91,59 @@ For complete, tested component implementations, see the `../examples/` directory
 - iot-core-publisher - Publishes sensor data to AWS IoT Core
 - s3-uploader - Monitors directories and uploads files to S3
 - ipc-publisher/subscriber - Inter-component communication examples
+
+### AWS Service Access Pattern
+⚠️ **CRITICAL**: Components accessing AWS services (S3, DynamoDB, etc.) MUST declare TES dependency.
+See: `components/token-exchange-service-guide.md`
+
+For components that need AWS service access:
+- Add ComponentDependencies for aws.greengrass.TokenExchangeService
+- Ensure IAM role has required service permissions
+
+### IoT Core Publishing Pattern
+For components that publish to IoT Core:
+- Import: `from awsiot.greengrasscoreipc.clientv2 import GreengrassCoreIPCClientV2`
+- Initialize: `ipc_client = GreengrassCoreIPCClientV2()`
+- Publish: `ipc_client.publish_to_iot_core(topic_name=topic, payload=data, qos=1)`
+- Use numeric QoS values (0, 1, 2) only
+
+### Configuration Access Pattern
+Components can access configuration via environment variables or IPC calls based on recipe configuration.
+
+## Best Practices
+
+### Recipe Development
+- Use unique component names with timestamps
+- Use `runtime: aws_nucleus_lite` in Platform section
+- Use lowercase lifecycle keys (`run`, `install`, `shutdown`)
+- Include proper artifact URI with full path
+- Add meaningful ComponentDescription
+
+### Python Script Development
+- Handle SIGTERM for graceful shutdown
+- Use `flush=True` in all print statements
+- Include error handling with try/catch blocks
+- Set proper HOME directory for pip operations
+- Use proper logging instead of print for production
+
+### Access Control
+- Place access control under ComponentConfiguration.DefaultConfiguration
+- Match resources to actual topics/operations used
+- Use descriptive policy descriptions
+- Follow principle of least privilege
+
+### Troubleshooting
+- Test scripts manually before deployment
+- Verify service status after deployment
+- Monitor logs for successful startup
+- Check file ownership and permissions
+- Ensure dependencies are available
+
+### Debugging Commands
+
+#### Greengrass Nucleus Lite
+- Component logs: `journalctl -u ggl.{ComponentName}.service --no-pager -n 10`
+- Deployment logs: `journalctl -u ggl.core.ggdeploymentd.service --no-pager -n 10`
+- Service status: `systemctl is-active ggl.core.*.service`
+- All services: `systemctl status ggl.core.* --no-pager`
+

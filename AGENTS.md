@@ -90,13 +90,13 @@ What would you like to work on? I can set up a Greengrass environment, create co
 ### Component Development and Deployment
 - `components/README.md` - **CRITICAL: Component development guide with recipe requirements, case sensitivity rules, and best practices**
 - `deployment/deploy-components-to-greengrass-lite.md` - Deploy components to existing Greengrass Lite device
-- `components/greengrass-lite-component-patterns.md` - Component templates, patterns, and best practices for greengrass lite
+- `components/` and `components/comprehensive-component-recipe.yaml` - Component templates, patterns, and best practices for greengrass (both Nucleus and Nucleus Lite).
 - `components/create-iot-core-publisher-component.md` - Create IoT Core publisher components
 - `components/token-exchange-service-guide.md` - Critical TES dependency requirements for AWS service access
 
 ## Structure
 - `components/` - Component development guides and templates
-- `deployment/` - Deployment patterns and configurations
+- `deployment/` - Deployment patterns and configurations. Agents MUST refer to this when creating a deployment.
 - `troubleshooting/` - Common issues and solutions
 - `setup/` - Step-by-step labs for AI agents to execute
 - `container-configs/` - Container configurations for both runtimes
