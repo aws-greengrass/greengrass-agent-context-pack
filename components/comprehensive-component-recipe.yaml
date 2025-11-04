@@ -1,0 +1,178 @@
+---
+RecipeFormatVersion: '2020-01-25'
+ComponentName: com.example.ComprehensiveComponent
+ComponentVersion: '1.2.3'
+ComponentDescription: Comprehensive example component demonstrating all recipe fields
+ComponentPublisher: Example Corp
+ComponentType: aws.greengrass.generic
+ComponentConfiguration:
+  DefaultConfiguration:
+    ServerPort: 8080
+    DatabaseConfig:
+      Host: localhost
+      Port: 5432
+      Name: mydb
+    FeatureFlags:
+      - feature1
+      - feature2
+    LogLevel: INFO
+ComponentDependencies:
+  aws.greengrass.TokenExchangeService:
+    VersionRequirement: '>=2.0.0'
+    DependencyType: HARD
+  com.example.DatabaseService:
+    VersionRequirement: '^1.5.0'
+    DependencyType: SOFT
+  aws.greengrass.Nucleus:
+    VersionRequirement: '>=2.0.0'
+Lifecycle:
+  linux:
+    Setenv:
+      GLOBAL_VAR: global_value
+    install:
+      Script: |
+        echo "Linux-specific global install"
+        mkdir -p /tmp/component-data
+      Timeout: 180
+    startup:
+      Script: echo "Linux global startup"
+      RequiresPrivilege: true
+  windows:
+    install:
+      Script: |
+        echo "Windows-specific global install"
+        mkdir C:\component-data
+  all:
+    Setenv:
+      COMMON_VAR: common_value
+    run:
+      Script: echo "Common run script for all platforms"
+      Timeout: 300
+Manifests:
+  - Name: Linux AMD64 Production
+    Platform:
+      os: linux
+      architecture: amd64
+      runtime: '*'
+      com.example.environment: production
+    Lifecycle:
+      Setenv:
+        MANIFEST_VAR: manifest_value
+        DATABASE_URL: '{configuration:/DatabaseConfig}'
+      install:
+        Script: |
+          apt-get update
+          apt-get install -y python3 python3-pip
+          pip3 install -r {artifacts:path}/requirements.txt
+        Skipif: onpath python3
+        Timeout: 300
+        RequiresPrivilege: true
+        Setenv:
+          INSTALL_VAR: install_value
+      startup:
+        Script: |
+          python3 {artifacts:path}/server.py --port {configuration:/ServerPort} &
+          echo $! > {work:path}/server.pid
+        Timeout: 60
+        Setenv:
+          STARTUP_VAR: startup_value
+      shutdown:
+        Script: |
+          if [ -f {work:path}/server.pid ]; then
+            kill $(cat {work:path}/server.pid)
+            rm {work:path}/server.pid
+          fi
+        Timeout: 30
+      recover:
+        Script: |
+          echo "Recovering component..."
+          pkill -f server.py
+          sleep 2
+        Timeout: 45
+      bootstrap:
+        Script: |
+          echo "Bootstrap: Installing system dependencies"
+          apt-get update && apt-get upgrade -y
+          exit 100
+        RequiresPrivilege: true
+        Timeout: 600
+        BootstrapOnRollback: true
+    Artifacts:
+      - Uri: 's3://my-bucket/components/server-app.zip'
+        Unarchive: ZIP
+        Permission:
+          Read: ALL
+          Execute: OWNER
+      - Uri: 's3://my-bucket/components/server.py'
+        Permission:
+          Read: OWNER
+          Execute: OWNER
+      - Uri: 's3://my-bucket/components/requirements.txt'
+        Permission:
+          Read: OWNER
+      - Uri: 's3://my-bucket/components/config.json'
+        Permission:
+          Read: ALL
+  - Name: Linux ARM64 Edge
+    Platform:
+      os: linux
+      architecture: aarch64
+      runtime: aws_nucleus_lite
+      com.example.environment: edge
+    Selections:
+      - linux
+      - all
+    Artifacts:
+      - Uri: 's3://my-bucket/components/server-arm.py'
+        Permission:
+          Read: OWNER
+          Execute: OWNER
+  - Name: Windows Development
+    Platform:
+      os: windows
+      architecture: amd64
+      com.example.environment: development
+    Lifecycle:
+      install:
+        Script: |
+          powershell -Command "Install-Module -Name SomeModule -Force"
+          pip install -r {artifacts:path}/requirements.txt
+        Skipif: exists C:\component-installed
+        Timeout: 240
+        Setenv:
+          WINDOWS_VAR: windows_value
+      run:
+        Script: |
+          python {artifacts:path}/server.py --port {configuration:/ServerPort} --log-level {configuration:/LogLevel}
+        Setenv:
+          RUN_VAR: run_value
+      shutdown:
+        Script: |
+          taskkill /F /IM python.exe
+        Timeout: 20
+    Artifacts:
+      - Uri: 's3://my-bucket/components/server-windows.py'
+        Permission:
+          Read: OWNER
+          Execute: OWNER
+      - Uri: 's3://my-bucket/components/requirements.txt'
+  - Name: Universal Fallback
+    Lifecycle:
+      install:
+        Script: echo "Universal install for any platform"
+        Skipif: exists {work:path}/.installed
+      run:
+        Script: |
+          echo "Running on platform: $(uname -a)"
+          echo "Thing name: {iot:thingName}"
+          echo "Kernel root: {kernel:rootPath}"
+          echo "Work path: {work:path}"
+          echo "Dependency artifacts: {com.example.DatabaseService:artifacts:path}"
+          touch {work:path}/.installed
+    Artifacts:
+      - Uri: 's3://my-bucket/components/universal-script.sh'
+        Permission:
+          Read: ALL
+          Execute: ALL
+
+
