@@ -1,0 +1,12 @@
+{
+  "name": "temperature-processor",
+  "version": "1.0.0",
+  "description": "Temperature processor component for Greengrass v2",
+  "main": "TemperatureProcessor.js",
+  "dependencies": {
+    "aws-iot-device-sdk-v2": "^1.21.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.example.DeviceController",
+  "ComponentVersion": "1.0.0",
+  "ComponentType": "aws.greengrass.generic",
+  "ComponentDescription": "Receives commands from IoT Core and sends telemetry back to cloud",
+  "ComponentPublisher": "[Your Company]",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "accessControl": {
+        "aws.greengrass.ipc.mqttproxy": {
+          "com.example.DeviceController:mqttproxy:1": {
+            "policyDescription": "Allows access to subscribe to command topics from IoT Core",
+            "operations": [
+              "aws.greengrass#SubscribeToIoTCore"
+            ],
+            "resources": [
+              "commands/device1"
+            ]
+          },
+          "com.example.DeviceController:mqttproxy:2": {
+            "policyDescription": "Allows access to publish telemetry to IoT Core",
+            "operations": [
+              "aws.greengrass#PublishToIoTCore"
+            ],
+            "resources": [
+              "telemetry/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux",
+        "runtime": "*"
+      },
+      "Lifecycle": {
+        "run": "cd {artifacts:decompressedPath}/DeviceController && node DeviceController.js"
+      },
+      "Artifacts": [
+        {
+          "Uri": "s3://YOUR-BUCKET/artifacts/com.example.DeviceController/1.0.0/DeviceController.zip",
+          "Unarchive": "ZIP"
+        }
+      ]
+    }
+  ]
+}

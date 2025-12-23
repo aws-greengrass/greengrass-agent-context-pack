@@ -1,0 +1,12 @@
+{
+  "name": "device-controller",
+  "version": "1.0.0",
+  "description": "Device controller component for Greengrass v2",
+  "main": "DeviceController.js",
+  "dependencies": {
+    "aws-iot-device-sdk-v2": "^1.21.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

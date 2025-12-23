@@ -1,0 +1,51 @@
+{
+  "RecipeFormatVersion": "2020-01-25",
+  "ComponentName": "com.example.TemperatureProcessor",
+  "ComponentVersion": "1.0.0",
+  "ComponentType": "aws.greengrass.generic",
+  "ComponentDescription": "Receives sensor data and forwards alerts to AlertHandler",
+  "ComponentPublisher": "[Your Company]",
+  "ComponentConfiguration": {
+    "DefaultConfiguration": {
+      "accessControl": {
+        "aws.greengrass.ipc.pubsub": {
+          "com.example.TemperatureProcessor:pubsub:1": {
+            "policyDescription": "Allows access to subscribe to sensor topics",
+            "operations": [
+              "aws.greengrass#SubscribeToTopic"
+            ],
+            "resources": [
+              "sensors/temperature"
+            ]
+          },
+          "com.example.TemperatureProcessor:pubsub:2": {
+            "policyDescription": "Allows access to publish to alert topics",
+            "operations": [
+              "aws.greengrass#PublishToTopic"
+            ],
+            "resources": [
+              "component/alerts"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "Manifests": [
+    {
+      "Platform": {
+        "os": "linux",
+        "runtime": "*"
+      },
+      "Lifecycle": {
+        "run": "cd {artifacts:decompressedPath}/TemperatureProcessor && node TemperatureProcessor.js"
+      },
+      "Artifacts": [
+        {
+          "Uri": "s3://YOUR-BUCKET/artifacts/com.example.TemperatureProcessor/1.0.0/TemperatureProcessor.zip",
+          "Unarchive": "ZIP"
+        }
+      ]
+    }
+  ]
+}

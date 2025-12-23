@@ -14,6 +14,7 @@ This context pack enables AI agents to:
 - Follow best practices for component development
 - Troubleshoot common issues
 - Provide guided assistance for Greengrass Nucleus experimentation
+- Migrate Greengrass V1 Lambda functions to V2 components
 
 ## AI Agent Integration
 
