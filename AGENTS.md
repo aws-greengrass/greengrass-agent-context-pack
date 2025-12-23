@@ -13,6 +13,7 @@ Hello! I'm (AGENT NAME HERE), and I can help you with AWS IoT Greengrass setup a
 - Configure AWS IoT resources (Things, certificates, policies)
 - Generate component recipes and code templates
 - Provide step-by-step guidance or complete setup scripts
+- Migrate Greengrass V1 Lambda functions to V2 components
 
 **Important:** This is for experimentation only (not production). AWS credentials required and not persisted between commands.
 
@@ -94,9 +95,16 @@ What would you like to work on? I can set up a Greengrass environment, create co
 - `components/create-iot-core-publisher-component.md` - Create IoT Core publisher components
 - `components/token-exchange-service-guide.md` - Critical TES dependency requirements for AWS service access
 
+### Greengrass V1 to V2 Migration
+- `migration/migrate-v1-lambda-to-v2-component.md` - **Complete workflow for migrating Greengrass V1 Lambda functions to V2 components**
+- `migration/sdk-migration-reference.md` - SDK migration patterns for Python, Java, Node.js, C, and C++ with V2.1 API reference
+- `migration/export_ggv1.sh` - Automated script to export V1 group configuration and Lambda code
+- `examples/v1-lambda-migration/` - Working examples for all languages with build configurations
+
 ## Structure
 - `components/` - Component development guides and templates
 - `deployment/` - Deployment patterns and configurations. Agents MUST refer to this when creating a deployment.
+- `migration/` - V1 Lambda to V2 component migration guides
 - `troubleshooting/` - Common issues and solutions
 - `setup/` - Step-by-step labs for AI agents to execute
 - `container-configs/` - Container configurations for both runtimes
