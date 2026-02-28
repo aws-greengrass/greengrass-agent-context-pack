@@ -1,3 +1,6 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+
 # Token Exchange Service (TES) Component Guide
 
 ## Critical Requirements for AWS Service Access

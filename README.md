@@ -16,6 +16,18 @@ This context pack enables AI agents to:
 - Provide guided assistance for Greengrass Nucleus experimentation
 - Migrate Greengrass V1 Lambda functions to V2 components
 
+## Installation
+
+Install the Greengrass skill into your project with a single command:
+
+```
+npx skills add aws-greengrass/greengrass-agent-context-pack
+```
+
+This works with Claude Code, GitHub Copilot, Cursor, Windsurf, Cline, Kiro, Gemini CLI, OpenAI Codex, Amazon Q, and any other agent supporting the [Agent Skills](https://agentskills.io) standard.
+
+Once installed, the skill activates automatically when your task involves Greengrass — loading only the relevant context on demand.
+
 ## AI Agent Integration
 
 AI agents should reference [AGENTS.md](./AGENTS.md) for:
@@ -47,10 +59,10 @@ AI agents should follow this sequence:
 
 1. **Review [AGENTS.md](./AGENTS.md)** for workflow patterns and implementation guidelines
 2. **Select appropriate setup**:
-   - For full feature set: `setup/setup-greengrass-container.md`
-   - For constrained environments: `setup/setup-greengrass-lite-container.md`
-3. **Implement component development**: `components/` and `components/comprehensive-component-recipe.yaml`
-4. **Execute deployment**: `setup/deploy-components-to-greengrass-lite.md`
+   - For full feature set: `skills/aws-iot-greengrass/references/setup/setup-greengrass-container.md`
+   - For constrained environments: `skills/aws-iot-greengrass/references/setup/setup-greengrass-lite-container.md`
+3. **Implement component development**: `skills/aws-iot-greengrass/references/components/component-development.md` and `skills/aws-iot-greengrass/references/components/comprehensive-component-recipe.yaml`
+4. **Execute deployment**: `skills/aws-iot-greengrass/references/deployment/deploy-components-to-greengrass-lite.md`
 
 ## Technical Considerations
 

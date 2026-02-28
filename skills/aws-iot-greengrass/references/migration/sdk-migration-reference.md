@@ -1,3 +1,6 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+
 # Greengrass V1 to V2 SDK Migration Reference
 
 Complete reference for migrating Greengrass SDK code across all supported languages.

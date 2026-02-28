@@ -4,7 +4,7 @@
 # AI Agent Instructions: Deploy Components to Greengrass Lite Device
 
 ## Prerequisites
-- Greengrass Lite device already running (use `setup-greengrass-lite-container.md`)
+- Greengrass Lite device already running (use `../setup/setup-greengrass-lite-container.md`)
 - AWS credentials available
 - Container name from setup (e.g., `ggl-{timestamp}`)
 

@@ -1,10 +1,13 @@
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: CC-BY-SA-4.0
+
 # Greengrass Component Development Guide
 
 This directory contains guides and templates for developing AWS IoT Greengrass components.
 
 ## Component Recipe Template
 
-When creating a recipe for any component, the agent *MUST* first read the `./comprehensice-component-recipe.yaml` *BEFORE* producing a recipe.
+When creating a recipe for any component, the agent *MUST* first read the `./comprehensive-component-recipe.yaml` *BEFORE* producing a recipe.
 
 ## CRITICAL: Recipe Field Case Sensitivity
 
@@ -31,7 +34,7 @@ Greengrass Lite is CASE-SENSITIVE for ALL recipe fields. Use exact casing as spe
 
 When creating components, follow this specific workflow:
 
-1. **IDENTIFY SIMILAR EXAMPLE** - Check `../examples/` directory for the closest matching component type
+1. **IDENTIFY SIMILAR EXAMPLE** - Check `../../examples/` directory for the closest matching component type
 2. **COPY AND MODIFY** - Use the example as a starting template, don't create from scratch
 3. **UPDATE CONFIGURATION** - Modify recipe.json with user's specific requirements
 4. **ADAPT SOURCE CODE** - Modify the source code for user's specific functionality
@@ -75,7 +78,7 @@ Available IPC operations (varies by runtime):
 - Implement proper shutdown procedures
 - Use appropriate runtime for device constraints
 - Test components in isolation before deployment
-- **Always reference working examples** from `../examples/` directory
+- **Always reference working examples** from `../../examples/` directory
 - **Follow exact field casing** requirements for Greengrass Lite compatibility
 
 ## Available Guides
@@ -85,7 +88,7 @@ Available IPC operations (varies by runtime):
 
 ## Working Examples
 
-For complete, tested component implementations, see the `../examples/` directory which includes:
+For complete, tested component implementations, see the `../../examples/` directory which includes:
 - hello-world - Simple logging component
 - sensor-simulator - Multi-sensor simulation with realistic data
 - iot-core-publisher - Publishes sensor data to AWS IoT Core
@@ -94,7 +97,7 @@ For complete, tested component implementations, see the `../examples/` directory
 
 ### AWS Service Access Pattern
 ⚠️ **CRITICAL**: Components accessing AWS services (S3, DynamoDB, etc.) MUST declare TES dependency.
-See: `components/token-exchange-service-guide.md`
+See: `./token-exchange-service-guide.md`
 
 For components that need AWS service access:
 - Add ComponentDependencies for aws.greengrass.TokenExchangeService

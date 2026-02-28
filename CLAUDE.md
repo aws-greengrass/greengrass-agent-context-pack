@@ -12,9 +12,9 @@ See [AGENTS.md](AGENTS.md) for full workflow patterns, implementation guidelines
 - This repository provides structured knowledge for AI agents to set up and experiment with AWS IoT Greengrass in containerized environments
 - **Not for production** — experimentation and quick start scenarios only
 - Two Greengrass variants: **Nucleus** (full Java runtime) and **Lite** (lightweight C runtime for constrained devices)
-- Always read the relevant guide from `setup/` before implementing
-- For component creation, always check `examples/` for similar implementations first
-- Recipe fields are **case-sensitive** for Greengrass Lite — see `components/README.md`
+- Always read the relevant guide from `skills/aws-iot-greengrass/references/` before implementing
+- For component creation, always check `skills/aws-iot-greengrass/examples/` for similar implementations first
+- Recipe fields are **case-sensitive** for Greengrass Lite — see `skills/aws-iot-greengrass/references/components/component-development.md`
 
 ## LLM Context Files
 

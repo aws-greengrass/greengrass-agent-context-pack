@@ -18,7 +18,7 @@ Create a timestamped workspace directory and navigate to it. Generate unique nam
 ## Step 2: Create Publisher Script
 **AWS Service Access Note**: 
 If your component needs S3, DynamoDB, or other AWS services beyond IoT Core, 
-see `components/token-exchange-service-guide.md` for TES dependency requirements.
+see `./token-exchange-service-guide.md` for TES dependency requirements.
 
 Create a Python script that:
 - Uses GreengrassCoreIPCClientV2 for IoT Core communication
