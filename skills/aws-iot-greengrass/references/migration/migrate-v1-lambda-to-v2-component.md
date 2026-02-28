@@ -47,7 +47,7 @@ source ~/credentials.sh
 
 ```bash
 # Run export script
-./migration/export_ggv1.sh <GROUP_ID> ./v1-export <REGION>
+./export_ggv1.sh <GROUP_ID> ./v1-export <REGION>
 
 # Output files:
 # - functions.json: Lambda configurations (env vars)
@@ -62,11 +62,11 @@ Convert Lambda function code using the SDK migration patterns:
 
 1. **SDK Migration**: Replace V1 SDK calls with V2 IPC
    - **Quick Reference**: See `sdk-migration-reference.md` for SDK operation snippets (publish, subscribe, etc.)
-   - **Complete Examples**: See `examples/v1-lambda-migration/<language>/<pattern>/` for full working code:
+   - **Complete Examples**: See `../../examples/v1-lambda-migration/<language>/<pattern>/` for full working code:
      - **Languages**: python, java, nodejs, c, cpp
      - **Patterns**: local_communication (device-to-device), cloud_communication (device-to-cloud)
      - **Includes**: V1 Lambda (v1_*.ext), **V2 component (v2_*.ext - USE THIS AS TEMPLATE)**, recipe, and build configs
-     - **Example**: For Java cloud communication, use `examples/v1-lambda-migration/java/cloud_communication/v2_controller.java` as your template
+     - **Example**: For Java cloud communication, use `../../examples/v1-lambda-migration/java/cloud_communication/v2_controller.java` as your template
 
 2. **Long-Running Process**: Convert Lambda handler to continuous loop with signal handling
 
@@ -186,7 +186,7 @@ The deployment guide covers:
 
 **For SDK migration resources:**
 - `./sdk-migration-reference.md` - Quick reference for SDK operation snippets (publish, subscribe, etc.)
-- `../examples/v1-lambda-migration/<language>/<pattern>/` - Complete working examples with V1/V2 code, recipes, and build configs
+- `../../examples/v1-lambda-migration/<language>/<pattern>/` - Complete working examples with V1/V2 code, recipes, and build configs
 
 ### Authorization Mapping
 
@@ -302,12 +302,12 @@ Published to data/sensor: {'value': 42}
 ## Working Example
 
 See complete sender/receiver migration example:
-- `../examples/v1-lambda-migration/`
+- `../../examples/v1-lambda-migration/`
 
 ### Build Instructions by Language
 
-- **C**: See `../examples/v1-lambda-migration/c/README.md` for build dependencies, CMakeLists.txt setup, and compilation steps
-- **C++**: See `../examples/v1-lambda-migration/cpp/README.md` for build configuration
+- **C**: See `../../examples/v1-lambda-migration/c/README.md` for build dependencies, CMakeLists.txt setup, and compilation steps
+- **C++**: See `../../examples/v1-lambda-migration/cpp/README.md` for build configuration
 - **Java**: See `pom.xml` in Java examples for Maven dependencies
 - **Node.js**: See `package.json` in Node.js examples for npm dependencies
 - **Python**: Install SDK with `pip3 install awsiotsdk`
