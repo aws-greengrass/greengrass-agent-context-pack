@@ -47,10 +47,10 @@ AI agents should follow this sequence:
 
 1. **Review [AGENTS.md](./AGENTS.md)** for workflow patterns and implementation guidelines
 2. **Select appropriate setup**:
-   - For full feature set: `setup/setup-greengrass-container.md`
-   - For constrained environments: `setup/setup-greengrass-lite-container.md`
-3. **Implement component development**: `components/` and `components/comprehensive-component-recipe.yaml`
-4. **Execute deployment**: `setup/deploy-components-to-greengrass-lite.md`
+   - For full feature set: `skills/aws-iot-greengrass/references/setup/setup-greengrass-container.md`
+   - For constrained environments: `skills/aws-iot-greengrass/references/setup/setup-greengrass-lite-container.md`
+3. **Implement component development**: `skills/aws-iot-greengrass/references/components/component-development.md` and `skills/aws-iot-greengrass/references/components/comprehensive-component-recipe.yaml`
+4. **Execute deployment**: `skills/aws-iot-greengrass/references/deployment/deploy-components-to-greengrass-lite.md`
 
 ## Technical Considerations
 

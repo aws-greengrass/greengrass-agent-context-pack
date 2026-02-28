@@ -60,9 +60,9 @@ Compare V1 and V2 files side-by-side to understand migration changes.
 
 ## Deployment
 
-See main migration guide at `../migration/migrate-v1-lambda-to-v2-component.md` for complete deployment instructions.
+See main migration guide at `../../references/migration/migrate-v1-lambda-to-v2-component.md` for complete deployment instructions.
 
 ## Additional Resources
 
-- **SDK Reference**: `../migration/sdk-migration-reference.md` - Complete SDK migration patterns for all languages
-- **Migration Guide**: `../migration/migrate-v1-lambda-to-v2-component.md` - Step-by-step migration workflow
+- **SDK Reference**: `../../references/migration/sdk-migration-reference.md` - Complete SDK migration patterns for all languages
+- **Migration Guide**: `../../references/migration/migrate-v1-lambda-to-v2-component.md` - Step-by-step migration workflow

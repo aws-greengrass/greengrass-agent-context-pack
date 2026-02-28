@@ -6,7 +6,7 @@
 ## Runtime-Specific Issues
 
 ### Greengrass Lite Issues
-- **Limited IPC Support**: Check [supported IPC commands](../greengrass-lite.md#supported-ipc-commands)
+- **Limited IPC Support**: Check [supported IPC commands](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html)
 - **Recipe Compatibility**: Only basic recipe types supported
 - **Memory Constraints**: Monitor resource usage on constrained devices
 

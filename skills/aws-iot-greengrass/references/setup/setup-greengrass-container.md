@@ -55,7 +55,7 @@ Check that:
 
 ### AWS Service Integration
 Components accessing AWS services require Token Exchange Service (TES) dependency.
-See: `components/token-exchange-service-guide.md`
+See: `../components/token-exchange-service-guide.md`
 
 ### Recipe Format
 Use standard Greengrass v2 recipe format with:
