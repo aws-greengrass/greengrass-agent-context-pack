@@ -101,6 +101,13 @@ What would you like to work on? I can set up a Greengrass environment, create co
 - `migration/export_ggv1.sh` - Automated script to export V1 group configuration and Lambda code
 - `examples/v1-lambda-migration/` - Working examples for all languages with build configurations
 
+## LLM Context Files
+
+For up-to-date API and service documentation beyond what this context pack covers (includes both Nucleus and Lite):
+
+- **Developer Guide**: https://docs.aws.amazon.com/greengrass/v2/developerguide/llms.txt
+- **API Reference**: https://docs.aws.amazon.com/greengrass/v2/APIReference/llms.txt
+
 ## Structure
 - `components/` - Component development guides and templates
 - `deployment/` - Deployment patterns and configurations. Agents MUST refer to this when creating a deployment.
