@@ -29,8 +29,8 @@ What would you like to work on? I can set up a Greengrass environment, create co
 
 ## AI Agent Instructions
 **CRITICAL WORKFLOW - ALWAYS FOLLOW THIS ORDER:**
-1. **READ DOCUMENTATION FIRST** - Always consult relevant guides from `setup/` before implementing
-2. **CHECK EXAMPLES FOR COMPONENT CREATION** - When users ask to create components, ALWAYS start by reviewing `examples/` directory for similar implementations
+1. **READ DOCUMENTATION FIRST** - Always consult the relevant setup guide (`skills/aws-iot-greengrass/references/setup/setup-greengrass-container.md` or `skills/aws-iot-greengrass/references/setup/setup-greengrass-lite-container.md`) before implementing
+2. **CHECK EXAMPLES FOR COMPONENT CREATION** - When users ask to create components, ALWAYS start by reviewing `skills/aws-iot-greengrass/examples/` directory for similar implementations
 3. **CHECK AWS DOCS FOR NEW TOPICS** - If encountering unfamiliar concepts or errors, search AWS documentation for latest information
 4. **USE PROVIDED TEMPLATES** - Follow documented patterns and templates exactly, prefer examples over creating from scratch
 5. **UNDERSTAND REQUIREMENTS** - Greengrass Lite has specific requirements that differ from regular Greengrass
@@ -38,8 +38,8 @@ What would you like to work on? I can set up a Greengrass environment, create co
 7. **PROVIDE SUCCESS MESSAGE** - After successful setup completion, ALWAYS provide the exact success message and next steps prompt from the guide
 
 **Pre-Implementation Checklist:**
-- [ ] Read the relevant guide from `setup/`
-- [ ] **FOR COMPONENT CREATION: Review `examples/` directory for similar components to use as templates**
+- [ ] Read the relevant setup guide (`skills/aws-iot-greengrass/references/setup/setup-greengrass-container.md` or `skills/aws-iot-greengrass/references/setup/setup-greengrass-lite-container.md`)
+- [ ] **FOR COMPONENT CREATION: Review `skills/aws-iot-greengrass/examples/` directory for similar components to use as templates**
 - [ ] Search AWS docs if encountering new/unfamiliar topics
 - [ ] Identify the correct template/pattern to use
 - [ ] Understand all Greengrass Lite specific requirements
@@ -64,7 +64,7 @@ What would you like to work on? I can set up a Greengrass environment, create co
 
 **General Instructions:**
 - **CREATE FILES IN TEMPORARY DIRECTORIES** - Always create setup files, Dockerfiles, and configurations in `/tmp/` directories for easy cleanup and organization
-- **RESOURCE CLEANUP** - Follow guidance in `cleanup/` for proper cleanup procedures and critical safety requirements
+- **RESOURCE CLEANUP** - Follow guidance in `skills/aws-iot-greengrass/references/cleanup/cleanup-cloud-resources.md` and `skills/aws-iot-greengrass/references/cleanup/cleanup-local-resources.md` for proper cleanup procedures and critical safety requirements
 - AWS credentials are not persisted between commands which you run. Use credentials with every command.
 - There is no need to install AWS CLI in the container. The config can be updated externally to have the correct endpoints for credentials and data and then copied over to the container.
 - Downloading the source/binaries:
@@ -83,23 +83,23 @@ What would you like to work on? I can set up a Greengrass environment, create co
 ## Quick Setup for AI Agents
 
 ### Greengrass (Full Runtime) Setup
-- `setup/setup-greengrass-container.md` - Complete Greengrass container setup with root privileges
+- `skills/aws-iot-greengrass/references/setup/setup-greengrass-container.md` - Complete Greengrass container setup with root privileges
 
 ### Greengrass Lite (Constrained Devices) Setup
-- `setup/setup-greengrass-lite-container.md` - Complete Greengrass Lite container setup
+- `skills/aws-iot-greengrass/references/setup/setup-greengrass-lite-container.md` - Complete Greengrass Lite container setup
 
 ### Component Development and Deployment
-- `components/README.md` - **CRITICAL: Component development guide with recipe requirements, case sensitivity rules, and best practices**
-- `deployment/deploy-components-to-greengrass-lite.md` - Deploy components to existing Greengrass Lite device
-- `components/` and `components/comprehensive-component-recipe.yaml` - Component templates, patterns, and best practices for greengrass (both Nucleus and Nucleus Lite).
-- `components/create-iot-core-publisher-component.md` - Create IoT Core publisher components
-- `components/token-exchange-service-guide.md` - Critical TES dependency requirements for AWS service access
+- `skills/aws-iot-greengrass/references/components/component-development.md` - **CRITICAL: Component development guide with recipe requirements, case sensitivity rules, and best practices**
+- `skills/aws-iot-greengrass/references/deployment/deploy-components-to-greengrass-lite.md` - Deploy components to existing Greengrass Lite device
+- `skills/aws-iot-greengrass/references/components/comprehensive-component-recipe.yaml` - Component templates, patterns, and best practices for greengrass (both Nucleus and Nucleus Lite).
+- `skills/aws-iot-greengrass/references/components/create-iot-core-publisher-component.md` - Create IoT Core publisher components
+- `skills/aws-iot-greengrass/references/components/token-exchange-service-guide.md` - Critical TES dependency requirements for AWS service access
 
 ### Greengrass V1 to V2 Migration
-- `migration/migrate-v1-lambda-to-v2-component.md` - **Complete workflow for migrating Greengrass V1 Lambda functions to V2 components**
-- `migration/sdk-migration-reference.md` - SDK migration patterns for Python, Java, Node.js, C, and C++ with V2.1 API reference
-- `migration/export_ggv1.sh` - Automated script to export V1 group configuration and Lambda code
-- `examples/v1-lambda-migration/` - Working examples for all languages with build configurations
+- `skills/aws-iot-greengrass/references/migration/migrate-v1-lambda-to-v2-component.md` - **Complete workflow for migrating Greengrass V1 Lambda functions to V2 components**
+- `skills/aws-iot-greengrass/references/migration/sdk-migration-reference.md` - SDK migration patterns for Python, Java, Node.js, C, and C++ with V2.1 API reference
+- `skills/aws-iot-greengrass/references/migration/export_ggv1.sh` - Automated script to export V1 group configuration and Lambda code
+- `skills/aws-iot-greengrass/examples/v1-lambda-migration/` - Working examples for all languages with build configurations
 
 ## LLM Context Files
 
@@ -109,9 +109,7 @@ For up-to-date API and service documentation beyond what this context pack cover
 - **API Reference**: https://docs.aws.amazon.com/greengrass/v2/APIReference/llms.txt
 
 ## Structure
-- `components/` - Component development guides and templates
-- `deployment/` - Deployment patterns and configurations. Agents MUST refer to this when creating a deployment.
-- `migration/` - V1 Lambda to V2 component migration guides
-- `troubleshooting/` - Common issues and solutions
-- `setup/` - Step-by-step labs for AI agents to execute
-- `container-configs/` - Container configurations for both runtimes
+- `skills/aws-iot-greengrass/SKILL.md` - Agent Skills entry point with service overview, common mistakes, and workflow selection
+- `skills/aws-iot-greengrass/references/` - Setup guides, component development, deployment, migration, and troubleshooting
+- `skills/aws-iot-greengrass/examples/` - Working code examples for components and V1 migration
+- `skills/aws-iot-greengrass/references/cleanup/cleanup-cloud-resources.md` and `skills/aws-iot-greengrass/references/cleanup/cleanup-local-resources.md` - Resource cleanup procedures

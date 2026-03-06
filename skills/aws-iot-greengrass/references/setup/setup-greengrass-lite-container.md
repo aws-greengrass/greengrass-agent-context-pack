@@ -19,7 +19,7 @@ Save the certificate ARN, certificate PEM, and private key from the certificate 
 
 ## Step 2.5: Create IAM Role and Role Alias for Token Exchange Service
 Create the required IAM role and role alias for the Token Exchange Service (TES):
-- Create IAM role named "GreengrassV2TokenExchangeRole-{timestamp}" with trust policy from `container-configs/iam-trust-policy.json` (allows "credentials.iot.amazonaws.com" service to assume the role) AND attach AmazonS3ReadOnlyAccess policy for artifact downloads
+- Create IAM role named "GreengrassV2TokenExchangeRole-{timestamp}" with trust policy from `../container-configs/iam-trust-policy.json` (allows "credentials.iot.amazonaws.com" service to assume the role) AND attach AmazonS3ReadOnlyAccess policy for artifact downloads
 - Create IoT role alias named "GreengrassV2TokenExchangeRoleAlias-{timestamp}" pointing to the IAM role ARN
 - If role/alias already exists, continue with existing ones
 - Save the role alias name for use in Step 4 configuration
@@ -33,7 +33,7 @@ Create a certificates directory at `run/certs/` and save:
 - Private key as `device.key`
 - Download Amazon Root CA certificate as `AmazonRootCA1.pem`
 
-Create `run/config.yaml` with system paths pointing to `/var/lib/greengrass/certs/` for the certificates, the unique thing name created in Step 2, the unique IoT role alias from Step 2.5, and services configuration for NucleusLite with the IoT endpoints obtained earlier. Refer to the configuration provided in the file `container-configs/lite-config.yaml`.
+Create `run/config.yaml` with system paths pointing to `/var/lib/greengrass/certs/` for the certificates, the unique thing name created in Step 2, the unique IoT role alias from Step 2.5, and services configuration for NucleusLite with the IoT endpoints obtained earlier. Refer to the configuration provided in the file `../container-configs/lite-config.yaml`.
 
 ## Step 5: Build Container
 Create a Dockerfile that:
